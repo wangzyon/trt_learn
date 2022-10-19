@@ -1,0 +1,36 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/src/**",
+                "/usr/local/anaconda3/lib/python3.8/site-packages/trtpy/trt8cuda115cudnn8/include/protobuf/**",
+                "/usr/local/anaconda3/lib/python3.8/site-packages/trtpy/cpp-packages/opencv-4.2.0/include/opencv4/**",
+                "/usr/local/anaconda3/lib/python3.8/site-packages/trtpy/trt8cuda115cudnn8/include/cuda/**",
+                "/usr/local/anaconda3/lib/python3.8/site-packages/trtpy/trt8cuda115cudnn8/include/tensorRT/**",
+                "/usr/local/anaconda3/lib/python3.8/site-packages/trtpy/trt8cuda115cudnn8/include/cudnn/**",
+                "/usr/local/anaconda3/include/python3.8/**"
+            ],
+            "defines": ["__CUDACC__", "HAS_PYTHON"],
+            "compilerPath": "/usr/bin/gcc", 
+            "cStandard": "gnu11",
+            "cppStandard": "gnu++11",
+            "intelliSenseMode": "linux-gcc-x64",
+            "configurationProvider": "ms-vscode.makefile-tools",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/src/**",
+                    "/usr/local/anaconda3/lib/python3.8/site-packages/trtpy/trt8cuda115cudnn8/include/protobuf/**",
+                    "/usr/local/anaconda3/lib/python3.8/site-packages/trtpy/cpp-packages/opencv-4.2.0/include/opencv4/**",
+                    "/usr/local/anaconda3/lib/python3.8/site-packages/trtpy/trt8cuda115cudnn8/include/cuda/**",
+                    "/usr/local/anaconda3/lib/python3.8/site-packages/trtpy/trt8cuda115cudnn8/include/tensorRT/**",
+                    "/usr/local/anaconda3/lib/python3.8/site-packages/trtpy/trt8cuda115cudnn8/include/cudnn/**",
+                    "/usr/local/anaconda3/include/python3.8/**"
+                ],
+                "limitSymbolsToIncludedHeaders": false,
+                "databaseFilename": ""
+            }
+        }
+    ],
+    "version": 4
+}
