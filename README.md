@@ -33,7 +33,23 @@
 10. 内存拷贝：将后处理结果从显存拷贝至CPU内存，获取最终输出output；
 11. 结果返回：future通过`set_result`方法填充output，并将future未完成工作，设置为已完成；接口判断future完成状态可通过`get`方法获取推理结果；
 
-#  2 TensorRT基础
+## 1.3 目录
+
+<a id="chapter2">2.TensorRT基础</a>
+
+<a id="chapter3">3.TensorRT封装</a>
+
+<a id="chapter4">4.onnx-tensorrt</a>
+
+<a id="chapter5">5.插件开发</a>
+
+<a id="chapter6">6.ONNX</a>
+
+<a id="chapter7">7.量化</a>
+
+<a id="chapter8">8.项目应用</a>
+
+#  [2 TensorRT基础](#chapter2)
 
 ## 2.1 概述
 
@@ -334,7 +350,7 @@ execution_context->setBindingDimensions(0, nvinfer1::Dims4(ib, 1, ih, iw));
 1. OptimizationProfile是一个优化配置文件，用来指定输入的shape可以变换的范围的，不要被优化两个字蒙蔽了双眼；
 2. 如果onnx的输入某个维度是-1，表示该维度动态，否则表示该维度是明确的，明确维度的minDims, optDims, maxDims一定一样；
 2. 使用中，大部分场景只关注batch的动态，宽高一般不使用动态；宽高动态影响引擎推理的很多因素，view、reshape、anchor等，且宽高动态在大多数实际应用中没有必要；
-# 3 TensorRT封装
+# [3 TensorRT封装](#chapter3)
 
 TensorRT封装目的在于实现开发效率的提升：
 
@@ -649,7 +665,7 @@ void InferImpl::set_input(int index, std::shared_ptr<Tensor> tensor) {
     }
 ```
 
-# 4 onnx-tensorrt
+# [4 onnx-tensorrt](#chapter4)
 
 onnx-tensorrt是将onnx模型转换为tensorRT模型的解析器。
 
@@ -940,7 +956,7 @@ onnx-tensorrt调用onnx时，是以`#include<onnx/onnx_pb.h>`方式调用的，�
 - 将`src/onnx-tensorrt-release-xx`中`ONNX_NAMESPACE`替换成`onnx`;
 - 编译若保存其他错误，可能是onnx-tensorrt无关文件没有删除干净，可以尝试删除报错cpp；
 
-# 5 插件开发
+# [5 插件开发](#chapter5)
 
 ## 5.1 PyTorch自定义插件
 
@@ -1488,7 +1504,7 @@ protected:
 ├── virtual const char* getPluginNamespace() const noexcept = 0;
 ```
 
-# 6 ONNX
+# [6 ONNX](#chapter6)
 
 ## 6.1 概述
 
@@ -2146,7 +2162,7 @@ anchor_grid = self.anchor[i].clone()*self.stride[i].view(1,self.na, 1,1,2).float
 
 5. torch.onnx.export仅使用batch动态；
 
-# 7 量化
+# [7 量化](#chapter7)
 
 ## 7.1 FP16 量化
 
@@ -2197,7 +2213,7 @@ config.setInt8Calibrator(...)
 
 int8 标定的理解： 对于图像 A，经过 float32 推理后得到 p1, 再通过 int8 推理得到 p2，调整权重，使 p1 和 p2 足够接近，正常发布时，使用 100 张图像标定即可；
 
-# 8 项目应用
+# [8 项目应用](#chapter8)
 
 1. [自动驾驶项目部署](workspace/self_driving/README.md)
 
